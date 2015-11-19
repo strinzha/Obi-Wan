@@ -17,24 +17,20 @@ function getLord(lordURL, action) {
           break;
         case 'unshift':
           lordsCollection.unshift(data);
+          if (data.master.url === null) {
+            console.log("up block");
+          }
           break;
         case 'push':
           lordsCollection.push(data);
+          if (data.apprentice.url === null) {
+            console.log("down block");
+          }
           break;
       }
-
+      //console.log(data);
       lordsCollection.trigger('addData');
     });
-  } else {
-
-    switch (action) {
-      case 'unshift':
-        console.log("up block");
-        break;
-      case 'push':
-        console.log("down block");
-        break;
-    }
   }
 }
 
